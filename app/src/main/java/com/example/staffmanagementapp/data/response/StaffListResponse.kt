@@ -5,27 +5,22 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class StaffListResponse(
-    @SerialName("page")
-    val page: Int? = null,
+    val page: Int,
     @SerialName("per_page")
-    val perPage: Int? = null,
-    @SerialName("total")
-    val total: Int? = null,
+    val perPage: Int,
+    val total: Int,
     @SerialName("total_pages")
-    val totalPages: Int? = null,
-    @SerialName("data")
-    val data: Data? = null
+    val totalPages: Int,
+    val data: List<Data>
 ) {
+    @Serializable
     data class Data(
-        @SerialName("id")
-        val id: Int? = null,
-        @SerialName("email")
-        val email: String? = null,
+        val id: Int,
+        val email: String,
         @SerialName("first_name")
-        val firstName: String? = null,
+        val firstName: String,
         @SerialName("last_name")
-        val lastName: String? = null,
-        @SerialName("avatar")
-        val avatar: String? = null
+        val lastName: String,
+        val avatar: String
     )
 }
