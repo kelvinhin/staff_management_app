@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Staff Management App</string>
+    <string name="login">Login</string>
+    <string name="staff_list">Staff List</string>
 </resources>

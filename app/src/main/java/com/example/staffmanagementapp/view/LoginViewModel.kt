@@ -1,4 +1,4 @@
-package com.example.staffmanagementapp.model
+package com.example.staffmanagementapp.view
 
 import androidx.lifecycle.ViewModel
 import com.example.staffmanagementapp.data.response.LoginResponse
@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class LoginViewModel: ViewModel() {
+class LoginViewModel : ViewModel() {
     private val _mainLoading: MutableStateFlow<Boolean> by lazy {
         MutableStateFlow(false)
     }
