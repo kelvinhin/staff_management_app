@@ -22,36 +22,46 @@
             android:layout_height="200dp"
             app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/edt_email"
+            app:layout_constraintBottom_toTopOf="@id/txt_layout_email"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@mipmap/ic_launcher"/>
 
-        <EditText
-            android:id="@+id/edt_email"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_layout_email"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:hint="E-Mail"
+            android:hint="@string/email_hint"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/img_app_logo"
-            app:layout_constraintBottom_toTopOf="@id/edt_password"/>
+            app:layout_constraintBottom_toTopOf="@id/txt_layout_password">
 
-        <EditText
-            android:id="@+id/edt_password"
-            android:layout_width="0dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_layout_password"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="Password"
+            android:hint="@string/password_hint"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edt_email"
-            app:layout_constraintBottom_toTopOf="@id/btn_login"/>
+            app:layout_constraintTop_toBottomOf="@id/txt_layout_email"
+            app:layout_constraintBottom_toTopOf="@id/btn_login">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_login"
@@ -61,7 +71,7 @@
             android:layout_marginTop="32dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edt_password"
+            app:layout_constraintTop_toBottomOf="@id/txt_layout_password"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <View

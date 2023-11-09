@@ -2,4 +2,9 @@
     <string name="app_name">Staff Management App</string>
     <string name="login">Login</string>
     <string name="staff_list">Staff List</string>
+    <string name="email_hint">E-Mail</string>
+    <string name="email_error">E-Mail format wrong</string>
+    <string name="password_hint">Password</string>
+    <string name="password_error">Password format wrong</string>
+    <string name="unknown_error">Unknown error</string>
 </resources>
