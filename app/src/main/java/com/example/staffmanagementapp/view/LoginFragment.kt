@@ -1,6 +1,7 @@
 package com.example.staffmanagementapp.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,7 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
         binding.vm = searchViewModel
         setupView()
         return binding.root
@@ -29,11 +31,13 @@ class LoginFragment : Fragment() {
         lifecycleScope.launch {
             searchViewModel.loginResponse.collect {
                 //TODO handle login response
+                Log.d("login", "Login success, token: ${it.token}")
             }
         }
         lifecycleScope.launch {
             searchViewModel.errorFlow.collect {
                 //TODO handle error message
+                Log.e("login", "Login failed, reason: $it")
             }
         }
     }

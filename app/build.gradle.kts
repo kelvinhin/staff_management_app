@@ -2,8 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.10"
     id("androidx.navigation.safeargs.kotlin")
+    kotlin("plugin.serialization") version "1.9.0"
 }
 
 android {

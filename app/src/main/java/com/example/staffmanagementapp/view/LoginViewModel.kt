@@ -53,7 +53,7 @@ class LoginViewModel : ViewModel() {
                 }
                 _mainLoading.value = false
             } catch (e: Exception) {
-                Log.e("Login", "Do Search error: " + e.message)
+                Log.e("Login", "Login error: " + e.message)
                 _mainLoading.value = false
                 _errorFlow.emit(e.message ?: "") //TODO get unknown error from string xml
             }
