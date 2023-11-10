@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.staffmanagementapp.R
 import com.example.staffmanagementapp.databinding.FragmentLoginBinding
 import com.example.staffmanagementapp.tools.isValidEmail
@@ -36,6 +37,9 @@ class LoginFragment : Fragment() {
             searchViewModel.loginResponse.collect {
                 //TODO handle login response
                 Log.d("login", "Login success, token: ${it.token}")
+                it.token?.let { token ->
+                    findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToStaffListFragment(token))
+                }
             }
         }
         lifecycleScope.launch {
