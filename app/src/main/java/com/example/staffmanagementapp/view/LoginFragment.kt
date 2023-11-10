@@ -6,9 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.example.staffmanagementapp.R
 import com.example.staffmanagementapp.databinding.FragmentLoginBinding
+import com.example.staffmanagementapp.tools.isValidEmail
+import com.example.staffmanagementapp.tools.isValidPassword
 import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
@@ -43,12 +47,30 @@ class LoginFragment : Fragment() {
     }
 
     private fun setupView() {
+        binding.edtEmail.addTextChangedListener {
+            binding.txtLayoutEmail.error = ""
+        }
+
+        binding.edtPassword.addTextChangedListener {
+            binding.txtLayoutPassword.error = ""
+        }
+
         binding.btnLogin.setOnClickListener {
-            //TODO check email and password before call login API
-            searchViewModel.doLogin(
-                email = binding.edtEmail.text.toString(),
-                password = binding.edtPassword.text.toString()
-            )
+            val isEmailValid = binding.edtEmail.text.toString().isValidEmail()
+            val isPasswordValid = binding.edtPassword.text.toString().isValidPassword()
+            if (isEmailValid && isPasswordValid) {
+                searchViewModel.doLogin(
+                    email = binding.edtEmail.text.toString(),
+                    password = binding.edtPassword.text.toString()
+                )
+            } else {
+                if (!isEmailValid) {
+                    binding.txtLayoutEmail.error = getString(R.string.email_error)
+                }
+                if (!isPasswordValid) {
+                    binding.txtLayoutPassword.error = getString(R.string.password_error)
+                }
+            }
         }
     }
 
