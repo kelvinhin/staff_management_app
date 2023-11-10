@@ -11,10 +11,10 @@ data class StaffListResponse(
     val total: Int,
     @SerialName("total_pages")
     val totalPages: Int,
-    val data: List<Data>
+    val data: List<StaffData>
 ) {
     @Serializable
-    data class Data(
+    data class StaffData(
         val id: Int,
         val email: String,
         @SerialName("first_name")

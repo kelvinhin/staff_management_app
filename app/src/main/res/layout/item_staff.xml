@@ -5,7 +5,7 @@
     <data>
         <variable
             name="item"
-            type="com.example.staffmanagementapp.data.response.StaffListResponse.Data" />
+            type="com.example.staffmanagementapp.data.response.StaffListResponse.StaffData" />
     </data>
 
     <LinearLayout

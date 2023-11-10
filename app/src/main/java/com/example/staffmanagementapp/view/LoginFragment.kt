@@ -38,7 +38,6 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         lifecycleScope.launch {
             searchViewModel.loginResponse.collect {
-                //TODO handle login response
                 Log.d("login", "Login success, token: ${it.token}")
                 it.token?.let { token ->
                     findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToStaffListFragment(token))
