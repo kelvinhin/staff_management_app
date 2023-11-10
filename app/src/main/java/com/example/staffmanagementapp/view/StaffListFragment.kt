@@ -1,6 +1,5 @@
 package com.example.staffmanagementapp.view
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,7 +26,7 @@ class StaffListFragment : Fragment() {
     }
 
     private fun setupView() {
-        binding.txvToken.text = navArgs.token
+        binding.txvToken.text = getString(R.string.token_display, navArgs.token)
     }
 
 }

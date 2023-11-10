@@ -6,5 +6,7 @@
     <string name="email_error">E-Mail format wrong</string>
     <string name="password_hint">Password</string>
     <string name="password_error">Password format wrong</string>
-    <string name="unknown_error">Unknown error</string>
+    <string name="login_error">Login error</string>
+    <string name="token_display">Token: %1$s</string>
+    <string name="name_display">%1$s %2$s</string>
 </resources>

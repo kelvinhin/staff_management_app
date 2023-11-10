@@ -1,5 +1,6 @@
 package com.example.staffmanagementapp.view
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -11,10 +12,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.staffmanagementapp.R
+import com.example.staffmanagementapp.data.response.LoginResponse
 import com.example.staffmanagementapp.databinding.FragmentLoginBinding
 import com.example.staffmanagementapp.tools.isValidEmail
 import com.example.staffmanagementapp.tools.isValidPassword
 import kotlinx.coroutines.launch
+import kotlinx.serialization.json.Json
 
 class LoginFragment : Fragment() {
     private val searchViewModel: LoginViewModel by viewModels()
@@ -44,8 +47,21 @@ class LoginFragment : Fragment() {
         }
         lifecycleScope.launch {
             searchViewModel.errorFlow.collect {
-                //TODO handle error message
                 Log.e("login", "Login failed, reason: $it")
+                val errorMessage = try {
+                    Json.decodeFromString<LoginResponse>(it).error
+                } catch (e: Exception) {
+                    it
+                }
+
+                AlertDialog.Builder(context)
+                    .setTitle(R.string.login_error)
+                    .setMessage(errorMessage)
+                    .setPositiveButton(com.google.android.material.R.string.mtrl_picker_confirm) { dialog, which ->
+                        dialog.dismiss()
+                    }
+                    .create()
+                    .show()
             }
         }
     }
