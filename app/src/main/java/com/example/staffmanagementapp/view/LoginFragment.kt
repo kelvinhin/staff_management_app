@@ -2,7 +2,6 @@ package com.example.staffmanagementapp.view
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -38,7 +37,6 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         lifecycleScope.launch {
             searchViewModel.loginResponse.collect {
-                Log.d("login", "Login success, token: ${it.token}")
                 it.token?.let { token ->
                     findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToStaffListFragment(token))
                 }
@@ -46,7 +44,6 @@ class LoginFragment : Fragment() {
         }
         lifecycleScope.launch {
             searchViewModel.errorFlow.collect {
-                Log.e("login", "Login failed, reason: $it")
                 val errorMessage = try {
                     Json.decodeFromString<LoginResponse>(it).error
                 } catch (e: Exception) {

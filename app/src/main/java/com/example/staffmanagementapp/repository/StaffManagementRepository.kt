@@ -7,7 +7,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 
 object StaffManagementRepository {
-    private val baseUrl = "https://reqres.in/api/"
+    private const val baseUrl = "https://reqres.in/api/"
     private val json = Json { ignoreUnknownKeys = true }
 
     val staffManagementApi: StaffManagementApi = Retrofit.Builder()

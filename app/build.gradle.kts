@@ -62,8 +62,8 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
-    val paging_version = "3.2.1"
-    implementation("androidx.paging:paging-runtime-ktx:$paging_version")
+    val pagingVersion = "3.2.1"
+    implementation("androidx.paging:paging-runtime-ktx:$pagingVersion")
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")

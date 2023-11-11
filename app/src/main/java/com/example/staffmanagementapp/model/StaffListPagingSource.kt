@@ -8,7 +8,7 @@ import retrofit2.HttpException
 import java.io.IOException
 
 class StaffListPagingSource(
-    val backend: StaffManagementApi
+    private val backend: StaffManagementApi
 ): PagingSource<Int, StaffListResponse.StaffData>() {
     override fun getRefreshKey(state: PagingState<Int, StaffListResponse.StaffData>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
