@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
@@ -36,7 +37,11 @@ class StaffListFragment : Fragment() {
     private fun setupView() {
         binding.txvToken.text = getString(R.string.token_display, navArgs.token)
         staffListAdapter = StaffListItemAdapter { selectedResult ->
-            // TODO handle on click
+            Toast.makeText(
+                context,
+                getString(R.string.click_display, selectedResult?.firstName, selectedResult?.lastName),
+                Toast.LENGTH_SHORT
+            ).show()
         }
         binding.btnRetry.setOnClickListener {
             binding.viewGroupRetry.visibility = View.GONE
