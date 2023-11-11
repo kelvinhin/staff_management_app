@@ -9,4 +9,6 @@
     <string name="login_error">Login error</string>
     <string name="token_display">Token: %1$s</string>
     <string name="name_display">%1$s %2$s</string>
+    <string name="label_error">Something went wrong, please try again</string>
+    <string name="retry">Retry</string>
 </resources>

@@ -35,6 +35,8 @@ class StaffListPagingSource(
             LoadResult.Error(e)
         } catch (e: IOException) {
             LoadResult.Error(e)
+        } catch (e: Exception) {
+            LoadResult.Error(e)
         }
     }
 

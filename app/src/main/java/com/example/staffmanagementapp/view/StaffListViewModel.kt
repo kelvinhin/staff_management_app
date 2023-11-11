@@ -8,7 +8,7 @@ import com.example.staffmanagementapp.model.StaffListPagingSource
 import com.example.staffmanagementapp.repository.StaffManagementRepository
 
 class StaffListViewModel : BaseViewModel() {
-    val flow = Pager(PagingConfig(pageSize = 6)) {
+    val staffListFlow = Pager(PagingConfig(pageSize = 6)) {
         StaffListPagingSource(StaffManagementRepository.staffManagementApi)
     }.flow.cachedIn(viewModelScope)
 }

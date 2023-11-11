@@ -17,7 +17,6 @@ interface StaffManagementApi {
 
     @GET("users")
     suspend fun getStaffList(
-        @Query("page") page: Int = 1,
-        @Query("delay") delay: Int = 5
+        @Query("page") page: Int = 1
     ): StaffListResponse
 }
