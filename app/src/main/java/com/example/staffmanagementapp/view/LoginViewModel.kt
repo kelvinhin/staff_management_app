@@ -1,6 +1,5 @@
 package com.example.staffmanagementapp.view
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.example.staffmanagementapp.data.request.LoginRequest
 import com.example.staffmanagementapp.data.response.LoginResponse

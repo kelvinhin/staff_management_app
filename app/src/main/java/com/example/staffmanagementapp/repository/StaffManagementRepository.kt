@@ -8,9 +8,10 @@ import retrofit2.Retrofit
 
 object StaffManagementRepository {
     private val baseUrl = "https://reqres.in/api/"
+    private val json = Json { ignoreUnknownKeys = true }
 
     val staffManagementApi: StaffManagementApi = Retrofit.Builder()
-        .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+        .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         .baseUrl(baseUrl)
         .build()
         .create(StaffManagementApi::class.java)
